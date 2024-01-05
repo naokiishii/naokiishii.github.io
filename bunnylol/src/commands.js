@@ -6,8 +6,8 @@ export type CommandType = {|
     searchurl?: string,
 |};
 
-export type CommandNames = 'bk' | 'fb' | 'm' | 'mw' | 'esa' | 'gn' | 'gc' | 'gm' | 'mail' | 'cal' | 'gtm' | 'ts' | 'gh' | 'st' | 'l' | 'me' | 'ig' | 'tw' | 'tr' | 'vs' | 'todo' |
-                           'c' | 'wf' | '$' | 'cal' | 'uvacovid' | 'hs' | 'p' | 'n' | 'h' | 'pv' | 'gd' | 'wp' | 'wsj' | 'cnn' | 'wiki' | 'g' | 'DEFAULT';
+export type CommandNames = 'bk' | 'fb' | 'msg' | 'esa' | 'gh' | 'gn' | 'gc' | 'gm' | 'gd' | 'mail' | 'cal' | 'gtm' | 'ts' | 'st' | 'l' | 'ig' | 'tw' | 'g' | 'tr' | 'vs' | 'cal' | 'wiki' | 'render' | 'storybook' | 'nextjs' | 'react' | 'netlify' | 'bullet' | 'tailwind' | 'headless' | 'gqlgen' | 'openai' | 'apollo' | 'vitest' | 'jet' | 'tailwindp' | 'laravel' | 'readouble' | 'DEFAULT';
+
 
 export type CommandDataTableType = {|
     name: string, 
@@ -32,12 +32,7 @@ export const COMMANDS: {[CommandNames] : CommandType} = {
         complement: "",
         searchurl: "https://www.facebook.com/search/top/?q="
     },
-    m: {
-        name: "Messenger Desktop App",
-        url: "messenger://",
-        complement: "",
-    },
-    mw: {
+    msg: {
         name: "Messenger Web",
         url: "https://www.messenger.com/",
         complement: "",
@@ -47,6 +42,12 @@ export const COMMANDS: {[CommandNames] : CommandType} = {
         url: "https://sms-engineer.esa.io/",
         complement: "",
         searchurl: "https://sms-engineer.esa.io/posts?q="
+    },
+    gh: {
+        name: "GitHub",
+        url: "https://github.com/naokiishii/",
+        complement: "",
+        searchurl: "https://github.com/search?type=code&q=repo%3Abm-sms%2Fnaokiishii%20"
     },
     gn: {
         name: "GitHub Nurse Jinzai Bank",
@@ -92,12 +93,6 @@ export const COMMANDS: {[CommandNames] : CommandType} = {
         url: "https://smsc001.my.salesforce.com/home/home.jsp",
         complement: "",
     },
-    gh: {
-        name: "GitHub",
-        url: "https://github.com/",
-        complement: "",
-        searchurl: "https://www.github.com/search?q="
-    },
     st: {
         name: "Sentry",
         url: "https://sms.sentry.io/issues/?project=4505904603660288&statsPeriod=14d",
@@ -120,30 +115,10 @@ export const COMMANDS: {[CommandNames] : CommandType} = {
         searchurl: "https://twitter.com/search?q=",
         complement: "",
     },
-    me: {
-        name: "Rithik.me - Personal Website",
-        url: "https://rithik.me/me",
-        complement: "",
-    },
     g: {
         name: "Google",
         url: "https://google.com/",
         searchurl: "https://www.google.com/search?q=",
-        complement: "",
-    },
-    wp: {
-        name: "Washington Post",
-        url: "https://www.washingtonpost.com/regional/",
-        complement: "",
-    },
-    wsj: {
-        name: "Wall Street Journal",
-        url: "https://www.wsj.com/",
-        complement: "",
-    },
-    cnn: {
-        name: "CNN",
-        url: "https://www.cnn.com/",
         complement: "",
     },
     tr: {
@@ -151,63 +126,14 @@ export const COMMANDS: {[CommandNames] : CommandType} = {
         url: "https://trello.com/b/GjKhtVPK/hoohacks",
         complement: "",
     },
-    n: {
-        name: "Netflix",
-        url: "https://netflix.com/",
-        searchurl: "https://www.netflix.com/search?q=",
-        complement: "",
-    },
-    h: {
-        name: "Hulu",
-        url: "https://hulu.com/",
-        complement: "",
-    },
-    pv: {
-        name: "Amazon Prime Video",
-        url: "https://www.amazon.com/Amazon-Video/b/?&node=2858778011&ref=dvm_MLP_ROWNA_US_1",
-        searchurl: "https://www.amazon.com/s?i=instant-video&ref=nb_sb_noss_2&k=",
-        complement: "",
-    },
-    p: {
-        name: "Piazza",
-        url: "https://piazza.com/class",
-        complement: "",
-    },
     vs: {
         name: "VS Code",
         url: "vscode://",
         complement: "",
     },
-    wf: {
-        name: "Webflow",
-        url: "https://webflow.com/design/hoohacks",
-        complement: "",
-    },
-    hs: {
-        name: "Hubspot",
-        url: "https://app.hubspot.com/",
-        complement: "",
-    },
-    $: {
-        name: "Robinhood",
-        url: "https://robinhood.com/", 
-        searchurl: "https://robinhood.com/stocks/",
-        complement: "",
-    },
-    c: {
-        name: "Robinhood Crypto",
-        url: "https://robinhood.com/", 
-        searchurl: "https://robinhood.com/crypto/",
-        complement: "",
-    },
     cal: {
         name: "Google Calendar",
         url: "https://calendar.google.com/calendar/r",
-        complement: "",
-    },
-    uvacovid: {
-        name: "UVA COVID-19 Tracker",
-        url: "https://returntogrounds.virginia.edu/covid-tracker",
         complement: "",
     },
     wiki: {
@@ -216,9 +142,84 @@ export const COMMANDS: {[CommandNames] : CommandType} = {
         searchurl: "https://en.wikipedia.org/wiki/",
         complement: "",
     },
-    todo: {
-        name: "Microsoft To Do",
-        url: "https://to-do.live.com",
+    render: {
+        name: "Render(Dashboard)",
+        url: "https://dashboard.render.com/",
+        complement: "",
+    },
+    storybook: {
+        name: "Storybook",
+        url: "https://storybook.js.org/",
+        complement: "",
+    },
+    nextjs: {
+        name: "Next.JS",
+        url: "https://nextjs.org/docs",
+        complement: "",
+    },
+    react: {
+        name: "React.dev",
+        url: "https://react.dev/",
+        complement: "",
+    },
+    netlify: {
+        name: "Netlify",
+        url: "https://app.netlify.com/",
+        complement: "",
+    },
+    bullet: {
+        name: "Bulletproof React",
+        url: "https://github.com/alan2207/bulletproof-react",
+        complement: "",
+    },
+    tailwind: {
+        name: "Tailwind CSS",
+        url: "https://tailwindcss.com/",
+        complement: "",
+    },
+    headless: {
+        name: "Headless UI",
+        url: "https://headlessui.com/",
+        complement: "",
+    },
+    gqlgen: {
+        name: "GraphQL Codegen",
+        url: "https://the-guild.dev/graphql/codegen",
+        complement: "",
+    },
+    openai: {
+        name: "OpenAI dev",
+        url: "https://platform.openai.com/",
+        complement: "",
+    },
+    apollo: {
+        name: "Apollo Client",
+        url: "https://www.apollographql.com/docs/react/",
+        complement: "",
+    },
+    vitest: {
+        name: "Vitest",
+        url: "https://vitest.dev/",
+        complement: "",
+    },
+    jet: {
+        name: "MailJet",
+        url: "https://www.mailjet.com/",
+        complement: "",
+    },
+    tailwindp: {
+        name: "Awesome Tailwind CSS",
+        url: "https://github.com/aniftyco/awesome-tailwindcss",
+        complement: "",
+    },
+    laravel: {
+        name: "Laravel.com",
+        url: "https://laravel.com/docs/10.x",
+        complement: "",
+    },
+    readouble: {
+        name: "readouble.com",
+        url: "https://readouble.com/laravel/",
         complement: "",
     },
     DEFAULT: {
