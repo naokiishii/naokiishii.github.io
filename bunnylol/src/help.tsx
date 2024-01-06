@@ -9,7 +9,7 @@ import type {
 import { COMMANDS } from "./commands.js";
 import { CLASSES } from "./classes.js";
 import "jquery";
-import "datatables.net"
+import "datatables.net";
 import DataTable from "datatables.net-dt";
 
 export const viewHelpPage: () => void = function () {
@@ -27,10 +27,22 @@ export const viewHelpPage: () => void = function () {
   const columns: Array<ColumnDataTableType> = [
     { data: "command", title: "Command" },
     { data: "name", title: "Name" },
-    { data: "url", title: "URL" },
+    {
+      data: "url",
+      title: "URL",
+      render: function (data, type, row) {
+        return (
+          '<a href="' +
+          row.url +
+          '" target="_blank">' +
+          row.url +
+          "</a>"
+        );
+      },
+    },
   ];
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     new DataTable("#help-table", {
       data: data,
       columns: columns,
@@ -57,7 +69,7 @@ export const viewHelpPage: () => void = function () {
     { data: "url", title: "URL" },
   ];
 
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     new DataTable("#classes-table", {
       data: classesData,
       columns: classColumns,

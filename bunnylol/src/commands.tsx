@@ -56,6 +56,7 @@ export type CommandNames =
 export type ColumnDataTableType = {
   data: string;
   title: string;
+  render?: (data: any, type: any, row: any) => string;
 };
 
 export const COMMANDS: {
@@ -68,7 +69,7 @@ export const COMMANDS: {
   },
   fb: {
     name: "Facebook",
-    url: "https://facebook.com/",
+    url: "https://www.facebook.com/",
     complement: "",
     searchurl: "https://www.facebook.com/search/top/?q=",
   },
@@ -144,13 +145,13 @@ export const COMMANDS: {
   },
   l: {
     name: "Linkedin",
-    url: "https://linkedin.com/",
+    url: "https://www.linkedin.com/",
     complement: "",
   },
   ig: {
     name: "Instagram",
     url: "https://instagram.com/",
-    searchurl: "https://instagram.com/",
+    searchurl: "https://www.instagram.com/",
     complement: "",
   },
   tw: {
@@ -161,7 +162,7 @@ export const COMMANDS: {
   },
   g: {
     name: "Google",
-    url: "https://google.com/",
+    url: "https:/www./google.com/",
     searchurl: "https://www.google.com/search?q=",
     complement: "",
   },

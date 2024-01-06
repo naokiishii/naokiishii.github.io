@@ -3,7 +3,7 @@
   "main": "main.js",
   "scripts": {
     "clean": "rm static/js/main.js bundle.js",
-    "copy": "cp main.js static/js; rm main.js",
+    "copy": "cp main.js static/js; rm main.js bundle.js bundle.js.map",
     "build": "babel src/ -d compiled/ --extensions '.tsx,.js'",
     "bundle": "rollup -c --bundleConfigAsCjs",
     "minify": "minify --mangle bundle.js -o main.js",
