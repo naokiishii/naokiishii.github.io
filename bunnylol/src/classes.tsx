@@ -1,19 +1,21 @@
 // @flow strict
 
-export type ClassType = {|
+export type ClassType = {
     name: string,
     url: string,
     zoomurl?: string,
     discussionurl?: string,
     collaburl?: string,
     specialurl?: string,
-|};
+};
 
 export type ClassCommands = "f1" | "pl" | "cv" | "ear" | "sts" | "apma";
 
 export type JoinOrDiscussType = "j" | "d" | "c" | "s"; // j = join; d = discussion; c = UVA Collab; default to url; s = special
 
-export const CLASSES: {[ClassCommands]: ClassType } = {
+export const CLASSES: {
+    [K in ClassCommands]: ClassType;
+} = {
     f1: {
         name: "CS 4501: F1/10 Autonomous Racing: Perception, Planning, and Control for Autonomous Driving",
         url: "https://linklab-uva.github.io/autonomousracing/", 

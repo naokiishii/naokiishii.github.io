@@ -1,7 +1,7 @@
 // @flow strict
 
 import type { CommandType } from "./commands.js";
-import type { ClassCommands, JoinOrDiscussType, ClassType } from "./classes.js";
+import type { ClassType } from "./classes.js";
 
 import { COMMANDS } from "./commands.js";
 import { CLASSES } from "./classes.js";
@@ -11,10 +11,11 @@ const redirect: (string) => Promise<void> = async function (url: string) {
   await window.location.replace(url);
 };
 
-const bunnylol: (string) => Promise<boolean> = async function (
+const bunnylol: (command: string, arr: string[]) => Promise<boolean> = async function (
   command: string,
   arr: Array<string>
 ) {
+  console.log('test')
   console.log(arr);
   if (arr.length > 0) {
     const prefix: string = arr[0].endsWith(".")
@@ -83,19 +84,19 @@ if (commandParams !== null && searchParams !== '') {
 }
 
 const command: string = searchParams ? "search" : (commandParams ? "command" : "help");
-let params = [];
+let params : string[] = [];
 
 switch (command) {
   case "help" || "":
     viewHelpPage();
     break;
   case "command":
-    params = commandParams.split(',');
+    params = commandParams?.split(',') ?? [];
     bunnylol("command", params)
       .then((done: boolean) => {
         if (!done && COMMANDS.DEFAULT.searchurl) {
           redirect(
-            `${COMMANDS.DEFAULT.searchurl}${encodeURIComponent(params)}`
+            `${COMMANDS.DEFAULT.searchurl}${encodeURIComponent(commandParams ?? '')}`
           );
         }
       })
@@ -104,12 +105,12 @@ switch (command) {
       });
     break;
   default:
-    params = searchParams.split(/[ +]/g);
+    params = searchParams?.split(/[ +]/g) ?? [];
     bunnylol("search", params)
       .then((done: boolean) => {
         if (!done && COMMANDS.DEFAULT.searchurl) {
           redirect(
-            `${COMMANDS.DEFAULT.searchurl}${encodeURIComponent(params)}`
+            `${COMMANDS.DEFAULT.searchurl}${encodeURIComponent(searchParams ?? '')}`
           );
         }
       })
