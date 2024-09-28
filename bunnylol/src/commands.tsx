@@ -38,7 +38,12 @@ export type CommandNames =
   | "tailwindp"
   | "laravel"
   | "readouble"
-  | "DEFAULT";
+  | "pinecone"
+  | "streamlit"
+  | "ollama"
+  | "huggingface"
+  | "dbfiddle"
+  | "huggingface";
 
   export type CommandType = {
     name: string;
@@ -260,6 +265,31 @@ export const COMMANDS: {
   readouble: {
     name: "readouble.com",
     url: "https://readouble.com/laravel/",
+    complement: "",
+  },
+  pinecone: {
+    name: "Pinecone",
+    url: "https://www.pinecone.io/",
+    complement: "",
+  },
+  streamlit: {
+    name: "Streamlit",
+    url: "https://streamlit.io/",
+    complement: "",
+  },
+  ollama: {
+    name: "ollama",
+    url: "https://ollama.com/",
+    complement: "",
+  },
+  huggingface: {
+    name: "huggingface",
+    url: "https://huggingface.co/",
+    complement: "",
+  },
+  dbfiddle: {
+    name: "db-fiddle",
+    url: "https://www.db-fiddle.com/",
     complement: "",
   },
   DEFAULT: {
