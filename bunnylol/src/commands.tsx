@@ -43,7 +43,9 @@ export type CommandNames =
   | "ollama"
   | "huggingface"
   | "dbfiddle"
-  | "huggingface";
+  | "huggingface"
+  | "codegpt"
+  | "nomic";
 
   export type CommandType = {
     name: string;
@@ -290,6 +292,16 @@ export const COMMANDS: {
   dbfiddle: {
     name: "db-fiddle",
     url: "https://www.db-fiddle.com/",
+    complement: "",
+  },
+  codegpt: {
+    name: "CodeGPT",
+    url: "https://app.codegpt.co/en",
+    complement: "",
+  },
+  nomic: {
+    name: "Nomic",
+    url: "https://atlas.nomic.ai/data/naoki",
     complement: "",
   },
   DEFAULT: {
